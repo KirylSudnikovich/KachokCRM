@@ -1,9 +1,6 @@
 <template>
   <div class="panel">
     <div class="panel-header text-center">
-      <figure class="avatar avatar-lg">
-        <img :src="user.photo" alt="Avatar">
-      </figure>
       <div class="panel-title h5 mt-10">
         {{ user.first_name }} {{ user.last_name }}
       </div>
