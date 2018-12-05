@@ -40,6 +40,7 @@ export default {
       }
     };
   },
+  /* eslint-disable */
   methods: {
     onGoogleSignInSuccess(resp) {
       const token = resp.Zi.access_token;
@@ -53,7 +54,13 @@ export default {
         })
         .then(resp => {
           this.user = resp.data.user;
+        })
+        .catch(err => {
+          console.log(err.response)
         });
+    },
+    onGoogleSignInError (error) {
+      console.log('OH NOES', error)
     },
     isEmpty(obj) {
       return Object.keys(obj).length === 0;
