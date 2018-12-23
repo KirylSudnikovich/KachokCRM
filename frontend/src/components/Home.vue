@@ -38,13 +38,19 @@
             </div>
         </nav>
         <div class="container">
+            <h1 v-if="token">Da</h1>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Home"
+        name: "Home",
+        data() {
+            return {
+            token : localStorage.getItem('user-token')
+        }
+    }
     }
 </script>
 

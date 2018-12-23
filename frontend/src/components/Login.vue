@@ -27,8 +27,11 @@
                 axios.post("http://localhost:8000/api/v1/rest-auth/login/", {
                         'username': this.username,
                         'password': this.password,
-                    }
-                ).catch(err => {
+                    }).then(resp => {
+                        const token = resp.data.token
+                        localStorage.setItem('user-token', token)
+                        resolve(resp)
+                    }).catch(err => {
                     console.log(err.response);
                 });
             }
