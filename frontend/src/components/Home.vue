@@ -31,7 +31,9 @@
                     <button class="form-control my-2 my-sm-0" type="submit">
                         <router-link to="/reg">Sign Up</router-link>
                     </button>
-                    <button class="form-control my-2 my-sm-0" type="submit">Sign In</button>
+                    <button class="form-control my-2 my-sm-0" type="submit">
+                        <router-link to="/login">Sign In</router-link>
+                    </button>
                 </div>
             </div>
         </nav>

@@ -14,7 +14,7 @@
             <input type="text" v-model="username" class="form-control">
             <input type="email" v-model="email" class="form-control">
             <input type="password" v-model="password" class="form-control">
-            <button @click="goLogin" name="sign_up" class="form-control">Send</button>
+            <button @click="goReg" name="sign_up" class="form-control">Send</button>
         </div>
         <div class="col-md-4"/>
     </div>
@@ -33,7 +33,7 @@
             }
         },
         methods: {
-            goLogin() {
+            goReg() {
                 axios.post("http://localhost:8000/api/v1/rest-auth/registration/", {
                         'email': this.email,
                         'username': this.username,
