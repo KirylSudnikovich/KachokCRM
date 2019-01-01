@@ -41,6 +41,7 @@
                         'password2': this.password
                     }
                 ).catch(err => {
+                    // eslint-disable-next-line
                     console.log(err.response);
                 });
             }

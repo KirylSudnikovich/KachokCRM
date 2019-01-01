@@ -30,8 +30,9 @@
                     }).then(resp => {
                         const token = resp.data.token
                         localStorage.setItem('user-token', token)
-                        resolve(resp)
+                        return resp
                     }).catch(err => {
+                    // eslint-disable-next-line
                     console.log(err.response);
                 });
             }
