@@ -39,6 +39,8 @@
         </nav>
         <div class="container">
             <h1 v-if="token">Da</h1>
+            {{token}}
+            {{this.$store.state.token}}
         </div>
     </div>
 </template>
@@ -48,7 +50,7 @@
         name: "Home",
         data() {
             return {
-            token : localStorage.getItem('user-token')
+            token : this.$store.state.token
         }
     }
     }

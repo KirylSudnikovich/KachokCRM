@@ -5,6 +5,7 @@
             <input type="text" v-model="username" class="form-control">
             <input type="password" v-model="password" class="form-control">
             <button @click="goLogin" class="form-control">Send</button>
+            <h1>{{this.$store.state.token}}</h1>
         </div>
         <div class="col-md-4"/>
     </div>
@@ -30,6 +31,7 @@
                     }).then(resp => {
                         const token = resp.data.token
                         localStorage.setItem('user-token', token)
+                        this.$store.state.token = token
                         return resp
                     }).catch(err => {
                     // eslint-disable-next-line
