@@ -11,5 +11,12 @@ export const store = new Vuex.Store({
     getters: {
         isAuthenticated: state => !!state.token,
         authStatus: state => state.status
-    }
+    },
+    mutations: {
+        logout(state) {
+          // изменяем состояние
+          state.token = '';
+          localStorage.removeItem('user-token')
+        }
+      }
 })
