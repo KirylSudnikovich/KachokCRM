@@ -41,46 +41,43 @@
       </div>
     </nav>
     <div class="container">
-      <h1 v-if="token">Da</h1>
-      {{token}}
-      {{this.$store.state.token}}
+      <h1 v-if="token">Пользователь авторизован</h1>
+      <h1 v-else>Пользователь не авторизован</h1>
+      <button @click="getInfo">Get info</button>
+      {{username}}
+      {{email}}
     </div>
   </div>
 </template>
 
 <script>
-    import { mapState } from 'vuex'
-    export default {
-        name: "Home",
-        data() {
-            return {
-            // token : this.$store.state.token
-            }
-        },
-        computed: mapState([
-            'token'
-        ]),
-        methods: {
-            goLogout() {
-                // localStorage.removeItem('user-token')
-                this.$store.commit('logout')
-                // console.log("logout was successful")
-                this.$router.push('/')
-                // axios.post("http://localhost:8000/api/v1/rest-auth/login/", {
-                //         'username': this.username,
-                //         'password': this.password,
-                //     }).then(resp => {
-                //         const token = resp.data.token
-                //         localStorage.setItem('user-token', token)
-                //         this.$store.state.token = token
-                //         return resp
-                //     }).catch(err => {
-                //     // eslint-disable-next-line
-                //     console.log(err.response);
-                // });
-            }
-        }
+import { mapState } from "vuex";
+import axios from "axios";
+
+export default {
+  name: "Home",
+  data() {
+    return {
+      username: '',
+      email: '',
+      first_name: '',
+      last_name: ''
+    };
+  },
+  computed: mapState(["token"]),
+  methods: {
+    goLogout() {
+      this.$store.commit("logout");
+    },
+    getInfo() {
+      axios.get("http://localhost:8000/api/v1/rest-auth/user/", { withCredentials: true }).then(resp => {
+        this.username = resp.data.username
+        this.email = resp.data.email
+        return resp;
+      });
     }
+  }
+};
 </script>
 
 <style scoped>

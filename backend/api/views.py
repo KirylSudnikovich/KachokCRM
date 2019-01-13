@@ -8,4 +8,4 @@ from rest_framework.decorators import api_view
 def hello_world(request):
     if request.method == 'POST':
         return Response({"message": "Got some data!", "data": request.data})
-    return Response({"message": "Hello, world!"})
+    return Response({"message": "Hello, world!", "data": request.user.username, "condition": request.user.is_authenticated, "Access-Control-Allow-Origin": "*"})

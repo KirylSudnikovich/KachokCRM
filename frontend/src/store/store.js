@@ -5,8 +5,8 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
     state: {
-        token : localStorage.getItem('user-token') || '',
-        status: ''
+        token: localStorage.getItem('user-token') || '',
+        status: '',
     },
     getters: {
         isAuthenticated: state => !!state.token,
@@ -14,9 +14,13 @@ export const store = new Vuex.Store({
     },
     mutations: {
         logout(state) {
-          // изменяем состояние
-          state.token = '';
-          localStorage.removeItem('user-token')
+            // изменяем состояние
+            state.token = '';
+            localStorage.removeItem('user-token')
+        },
+        login(state, token) {
+            state.token = token
+            localStorage.setItem('user-token', token)
         }
-      }
+    }
 })
