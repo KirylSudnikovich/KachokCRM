@@ -43,6 +43,7 @@
                         this.loading = false
                         const token = resp.data.token
                         this.$store.commit('login',token)
+                        this.$store.commit('getInfo')
                         this.$router.push('/')
                         // localStorage.setItem('user-token', token)
                         // this.$store.state.token = token
