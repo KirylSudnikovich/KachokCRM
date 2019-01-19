@@ -48,12 +48,15 @@
     </div>
     <section v-if="this.$store.state.token" class="content">
       <div class="row">
-        <div class="col-md-2 col-width-right-border">
+        <div class="col-sm-2 col-width-right-border">
           <home-sidebar></home-sidebar>
         </div>
-        <div class="col-md-10">
-          {{this.$store.state.username}}
+        <div class="col-sm-2"/>
+        <div class="col-sm-6 UserProfile">
+          <p>{{this.$store.state.username}}</p>
+          <p>{{this.$store.state.email}}</p>
         </div>
+        <div class="col-sm-2"/>
       </div>
     </section>
   </div>
@@ -77,4 +80,12 @@ export default {
 </script>
 
 <style scoped>
+  .UserProfile {
+    position: absolute;  /* подробнее про position: absolute; */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+  }
 </style>

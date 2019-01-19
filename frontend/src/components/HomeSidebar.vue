@@ -2,7 +2,8 @@
     <ul class="nav nav-pills nav-stacked HomeSidebar">
         <li v-if="!this.$store.state.token"><router-link to="/login">Register</router-link></li>
         <li v-if="!this.$store.state.token"><router-link to="/login">Login</router-link></li>
-        <li v-else @click="goLogout">Logout</li>
+        <li> <router-link to="/">Profile</router-link></li>
+        <li @click="goLogout">Logout</li>
         <li>1</li>
         <li>2</li>
         <li>3</li>
@@ -11,7 +12,7 @@
         <li>6</li>
         <li>7</li>
         <li>8</li>
-        <li>9</li>
+        <li></li>
     </ul>
 </template>
 
